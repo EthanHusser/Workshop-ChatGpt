@@ -38,3 +38,27 @@
 .side-menu-button:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+.chat-input-holder {
+  padding: 24px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.chat-input-area {
+  background-color: #40414f;
+  width: 90%;
+  padding: 12px;
+  color: #ffffff;
+  font-size: 1.25em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+}
+
+.chat-log {
+  text-align: left;
+}

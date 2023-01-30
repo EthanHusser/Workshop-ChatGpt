@@ -1,11 +1,17 @@
 ﻿## Chat Gpt - Workshop
 
 
-### Ex 02
+### Ex 03
 
-Pour cette exercice, vous devrez:
-- Créer un input en bas de la page qui vous servira à poser vos questions.
-- Créer un component qui pourra afficher votre question et la réponse de l'IA.
+Pour cette exercice, un nouveau fichier `index.js` est présent au début du dossier.
 
-![enter image description here](http://image.noelshack.com/fichiers/2023/05/1/1675117388-capture.png)
+Vous devrez içi faire à nouveau:
+    
 
+    npm i
+    node index.js // Pour lancer le serveur
+
+Dans cette exercice, vous devrez créer une route POST à l'aide de express afin d'envoyer une requête à l'API de OpenAI.
+Bien entendu, n'oubliez pas de spécifier votre clef d'API.
+
+Quand vous arrivez à faire fonctionner la requête, relier la avec votre front afin d'envoyer votre question directement à l'API.
