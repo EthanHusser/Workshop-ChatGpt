@@ -62,3 +62,15 @@
 .chat-log {
   text-align: left;
 }
+
+.select-models {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  max-width: 200px;
+  margin-top: 24px;
+  border-radius: 5px;
+  font-size: 1em;
+  outline: none;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25);
+}

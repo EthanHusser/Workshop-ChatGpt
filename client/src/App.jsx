@@ -1,12 +1,29 @@
 import './normal.css';
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ChatMessage from './ChatMessage';
 
 const App = () => {
 
   const [input, setInput] = useState('');
   const [chatLog, setChatLog] = useState([]);
+  const [models, setModels] = useState([]);
+  const [currentModel, setCurrentModel] = useState('babbage')
+
+  useEffect(() => {
+    getEngines();
+  }, []);
+
+  const getEngines = async () => {
+    try {
+      const response = await fetch('http://localhost:3080/models')
+      const data = await response.json();
+      setModels(data.models);
+      console.log(data.models);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const handleSubmit = async (e) => {
     try {
@@ -21,7 +38,8 @@ const App = () => {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          message: messages
+          message: messages,
+          currentModel
         })
       });
       const data = await response.json();
@@ -42,6 +60,15 @@ const App = () => {
         <div className="side-menu-button" onClick={clearChat}>
           <span>+</span>
           New Chat
+        </div>
+        <div className="models">
+          <select className='select-models' onChange={(e) => {
+            setCurrentModel(e.target.value);
+          }}>
+            {models.map((model) => {
+              return <option key={model.id} value={model.id}>{model.id}</option>
+            })}
+          </select>
         </div>
       </aside>
       <section className="chatbox">
