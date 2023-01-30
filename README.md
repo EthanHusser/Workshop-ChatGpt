@@ -1,17 +1,12 @@
 ﻿## Chat Gpt - Workshop
 
 
-### Ex 03
+### Ex 04
 
-Pour cette exercice, un nouveau fichier `index.js` est présent au début du dossier.
+Pour cette exercice, vous devrez utiliser l'API de OpenAI afin de récupérer tout les types de modèles qui sont disponibles.
 
-Vous devrez içi faire à nouveau:
-    
+Pour cela vous aller créer une route GET `/models`.
 
-    npm i
-    node index.js // Pour lancer le serveur
+Sur votre Front, vous allez créer un menu déroulant avec tout les modèles et en fonction de celui que vous allez sélectionner, cela changera le comportement de ChatGPT avec vos questions.
 
-Dans cette exercice, vous devrez créer une route POST à l'aide de express afin d'envoyer une requête à l'API de OpenAI.
-Bien entendu, n'oubliez pas de spécifier votre clef d'API.
-
-Quand vous arrivez à faire fonctionner la requête, relier la avec votre front afin d'envoyer votre question directement à l'API.
+![enter image description here](http://image.noelshack.com/fichiers/2023/05/2/1675120262-azaz.png)

@@ -6,12 +6,30 @@ import ChatMessage from './ChatMessage';
 const App = () => {
 
   const [input, setInput] = useState('');
-  const [chatLog, setChatLog] = useState([{user: 'me', message: 'Hello, is me'}, {user: 'gpt', message: 'Hello, I am GPT-3'}]);
+  const [chatLog, setChatLog] = useState([]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setChatLog([...chatLog, {user: 'me', message: input}]);
-    setInput('');
+    try {
+      e.preventDefault();
+      let chatLogNew = [...chatLog, {user: "me", message: `${input}`}];
+      setInput('');
+      setChatLog(chatLogNew)
+      const messages = chatLogNew.map((message) => message.message).join("\n");
+      const response = await fetch('http://localhost:3080/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          message: messages
+        })
+      });
+      const data = await response.json();
+      setChatLog([...chatLogNew, { user: "gpt" , message: `${data.message}`}]);
+      console.log(data.message);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const clearChat = () => {
